@@ -1,10 +1,11 @@
 ---
-title: "Homework 1: Review of Prerequisite Knowledge"
+title: "INFO 370A HW 1: Review of Prerequisite Knowledge"
 output: html_notebook
 ---
 
-Name: <<TODO>>
+Name: *TODO*
 
+This is a R Notebook. 
 Execute this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Cmd+Shift+Enter*. 
 ```{r}
 plot(cars)
@@ -13,3 +14,117 @@ plot(cars)
 Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.
 
 When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Cmd+Shift+K* to preview the HTML file).
+
+Read more about it in Chapter 12 of the [INFO 201 textbook](https://info201.github.io/)
+
+### 1) Write 3 things from the INFO 201 textbook that were confusing:
+1.1) *TODO*
+
+1.2) *TODO*
+
+1.3) *TODO*
+
+
+### Vectors
+```{r}
+# Set variable vec_even to a vector of even numbers from 2 to 100 (inclusive). 
+vec_even <- #TODO
+
+# Set variable vec_odd to a vector of odd numbers from 1 to 99 (inclusive).
+vec_odd <- #TODO
+
+# Set variable vec_sum to the sum of vec_even and vec_odd.
+vec_sum <- #TODO
+
+# Work on 2.1 below
+  
+```
+
+How many values in vec_sum are greater than the mean?
+
+2.1) *TODO*: Write a function get_upper which takes in a vector of numbers and returns the number of values which are greater than the mean. So get_upper(c(1,3,2,5)) would return 2.
+
+2.2) *TODO*: How many values in vec_sum are greater than the mean?
+
+### Importing libraries
+Now we're just importing some libraries. If you get errors when you run this, you may need to install some packages (see Ch 10.2).
+```{r}
+library(MASS) # access to Boston data frame
+data(mtcars) # data on motor trend car road tests
+
+library(dplyr) # data wrangling package. See Chapter 10 in INFO 201 textbook
+library(ggplot2) # plotting library. See Chapter 13 of INFO 201 textbook
+```
+
+
+
+### Learning about Vehicle Efficiancy
+We will now play with some data from 1974 Motor Trend Car Road Tests. The data exists in a dataframe _mtcars_.
+```{r}
+?mtcars # learn more about the dataframe
+View(mtcars) # see the dataframe
+  
+# Show work for 3.1-3.4 here!
+
+```
+What is the mean horsepower for all cars?
+3.1) *TODO*
+
+What is the mean horsepower for cars with 4 cylinders?
+3.2) *TODO*
+
+What is the mean fuel efficiency (in MPG) for cars with a displacement between 100 and 200 cu. in.?
+3.3) *TODO*
+
+3.4) *TODO*: Use ggplot to plot the relationship between vehicle displacement (x-axis) and miles per gallon (y-axis)
+
+
+Our friends in Europe now want to see this data but they want it converted to metric!
+```{r}
+#conversion ratios
+MPG_KML_RATIO <- 0.35400619 # 1 Miles/Gallon = 0.35 Kilometer/Liter
+CIN_L_RATIO <- 0.0163871 # 1 cubic inch = 0.016 Liter
+
+# Add a column "kml" to the mtcars dataframe which provides the kilometers / liter for each car. The conversion from MPG to KML is provided by MPG_KML_RATIO.
+mtcars$kml <- #TODO
+  
+# Add a column "disp_l" to the mtcars dataframe which provides the displacement for each car in liters. The conversion from cubic inches to liters is provided by CIN_L_RATIO.
+mtcars$disp_l <- #TODO
+
+# Convert mtcars$cyl to a factor (see Chapter 9.3)
+mtcars$cyl <- #TODO
+
+# Show 4.1 and 4.2 below!
+
+```
+
+4.1) *TODO* Use ggplot to plot the relationship between vehicle displacement in liters and kilometers/liter. Color the points by number of cylinder. Give the plot a title, label both axes.
+
+Based on your plot in 4.1, comment on the relationship between displacement, fuel efficiency, and cylinders. 
+4.2) *TODO*
+
+### Looking at Boston housing data
+```{r}
+# Work on 5.1-5.3 below
+
+?Boston # getting more information on the dataset
+
+boston <- Boston
+View(boston) # Viewing data
+
+
+```
+What does a row in the Boston dataset represent?
+5.1) *TODO* 
+
+What is the median value of owner-occupied homes for the 5 neighborhoods with the highest per capita crime rate that tract bound the Charles River? (hint: see Chapter 10)
+5.2) *TODO*
+
+What is the median value of owner-occupied homes for the 5 neighborhoods with the highest per capita crime rate that do NOT tract bound the Charles River?
+5.3) *TODO*
+
+
+Last question: How long did this assignment take you?
+6.1) *TODO*
+
+That's it for this assignment. Great job!
