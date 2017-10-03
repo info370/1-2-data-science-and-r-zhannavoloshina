@@ -67,7 +67,11 @@ _hint_: is.na can be helpful
 total_reports = nrow(data)
 total_reports
 
-# write code below!
+length.na <- length(which(is.na(data$at_scene_time_date)))
+prop <- length.na / total_reports
+
+length.na.clearence <- length(which(is.na(data$event_clearance_ts)))
+prop.clearence <- length.na.clearence / total_reports
 ```
 
 
@@ -96,7 +100,17 @@ Perhaps we should have more officers patroling during times of day which are hig
 _hint_ this code should look similar to the previous block (Frequency of Crimes by Day of Week).
 _challenge_: Crime by time of day may vary by weekend days and weekdays. Plot the crime by times of day for weekdays and weekend days separately.
 ```{r}
-# Your code below!
+hoursData = data.frame(data[,table((event_clearance_hr))]); 
+View(hoursData)
+
+
+ggplot(hoursData,
+       aes(x = Var1, y = Freq, fill = as.numeric(Var1) %% 2)) +
+  geom_bar(stat = 'identity') +
+  coord_flip() +
+  theme_bw() + 
+  xlab ("Hour of Day") + ylab("Count") +
+  guides(fill=F)
 ```
 
 #6. Types of contacts
